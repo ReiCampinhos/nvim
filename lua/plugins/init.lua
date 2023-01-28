@@ -1,4 +1,9 @@
 local plugins = {
+
+  { 'nvim-lua/plenary.nvim' },
+
+  { "nvim-tree/nvim-web-devicons" },
+
   {
     "williamboman/mason.nvim",
     opts = {
@@ -10,22 +15,46 @@ local plugins = {
       },
     },
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    init = function()
+      -- require("core.utils").lazy_load "nvim-treesitter"
+    end,
+    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSEnable", "TSDisable", "TSModuleInfo" },
+    build = ":TSUpdate",
+    config = function()
+      require "plugins.configs.treesitter"
+    end,
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    init = function()
+      -- require("core.utils").lazy_load "indent-blankline.nvim"
+      -- require("core.utils").load_mappings "blankline"
+    end,
+    config = function()
+      require("plugins.configs.others").blankline()
+    end,
+  },
+
   { 'prichrd/netrw.nvim',
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      -- require('nvim-web-devicons').setup()
       require('netrw').setup()
     end
   },
-  {
-    'tpope/vim-vinegar',
-  },
+  
+  { 'tpope/vim-vinegar' },
+
   {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
     end
   },
+
   {
     "mcchrish/zenbones.nvim",
     dependencies = "rktjmp/lush.nvim",
