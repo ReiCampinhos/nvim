@@ -8,6 +8,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "e3ebc8ec5d586162f3c408417621daa59ba8ea62" },
   "nvim-web-devicons": { "branch": "master", "commit": "4af94fec29f508159ceab5413383e5dedd6c24e3" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
+  "telescope.nvim": { "branch": "master", "commit": "a3f17d3baf70df58b9d3544ea30abe52a7a832c2" },
   "vim-vinegar": { "branch": "master", "commit": "bb1bcddf43cfebe05eb565a84ab069b357d0b3d6" },
   "zenbones.nvim": { "branch": "main", "commit": "910b8c240c6aaf5263db038db81c538602c766c3" }
 }

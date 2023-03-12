@@ -69,6 +69,26 @@ local plugins = {
       vim.cmd[[colorscheme zenwritten]]
     end
   },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    init = require("core.utils").load_mappings "telescope",
+
+    opts = function()
+      return require "plugins.configs.telescope"
+    end,
+
+    config = function(_, opts)
+      local telescope = require "telescope"
+      telescope.setup(opts)
+
+      -- load extensions
+      for _, ext in ipairs(opts.extensions_list) do
+        telescope.load_extension(ext)
+      end
+    end,
+  },
 }
 
 -- load lazy.nvim options
