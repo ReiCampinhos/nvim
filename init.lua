@@ -1,5 +1,5 @@
 require "core"
-require "core.options"
+
 -- require("core.utils").load_mappings()
 
 -- bootstrap lazy.nvim!

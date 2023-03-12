@@ -4,16 +4,21 @@ local plugins = {
 
   { "nvim-tree/nvim-web-devicons" },
 
+  -- lsp stuff
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "flake8",
-      },
-    },
+    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+    opts = function()
+      return require "plugins.configs.mason"
+    end,
+    config = function(_, opts)
+      require("mason").setup(opts)
+
+      -- custom nvchad cmd to install all mason binaries listed
+      vim.api.nvim_create_user_command("MasonInstallAll", function()
+        vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
+      end, {})
+    end,
   },
 
   {

@@ -1,6 +1,18 @@
 local options = {
   ensure_installed = {
+    "vim",
+    "html",
+    "css",
+    "javascript",
+    "json",
+    "toml",
+    "markdown",
+    "c",
+    "bash",
     "lua",
+    "norg",
+    "tsx",
+    "typescript",
   },
 
   highlight = {
